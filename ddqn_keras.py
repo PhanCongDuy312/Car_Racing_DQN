@@ -109,8 +109,14 @@ class DDQNAgent(object):
     def update_network_parameters(self):
         self.brain_target.copy_weights(self.brain_eval)
 
-    def save_model(self):
+    def save_model(self, inter):
         self.brain_eval.model.save(self.model_file)
+        if inter == 10000:
+            self.brain_eval.model.save('duy_10k')
+        if inter == 20000:
+            self.brain_eval.model.save('duy_20k')  
+        if inter == 50000:
+            self.brain_eval.model.save('duy_50k') 
         
     # def load_model_from_h5(self):
     #     self.brain_eval.model = load_model(self.model_file)

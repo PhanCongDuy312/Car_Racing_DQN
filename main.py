@@ -98,7 +98,7 @@ def run():
             ddqn_agent.update_network_parameters()
 
         if e % 10 == 0 and e > 10:
-            ddqn_agent.save_model()
+            ddqn_agent.save_model(e)
             print("save model")
             
         print('episode: ', e,'score: %.2f' % score,
